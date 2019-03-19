@@ -23,6 +23,28 @@ namespace Schedule
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;//событие загрузки
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Excel scheduleSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\schedule1.xlsx", 1);
+            Excel timesSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\times.xlsx", 1);
+            Excel machineToolsSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\machine_tools.xlsx", 1);
+            Excel partiesSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\parties.xlsx", 1);
+            Excel nomenclaturesSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\nomenclatures.xlsx", 1);
+
+
+            List<List<string>> resTable = scheduleSheet.GetTable();
+            //resList.ItemsSource = resTable.ElementAt(0);
+            resList2.ItemsSource = resTable;
+            List<TimesItem> timesList = timesSheet.GetTimesList();
+            List<MachineToolsItem> machineToolsList = machineToolsSheet.GetMachineToolsList();
+            List<PartiesItem> partiesList = partiesSheet.GetPartiesList();
+            List<NomenclaturesItem> nomenclaturesList = nomenclaturesSheet.GetNomenclaturesList();
+            //LbMain.ItemsSource = excel;
+            //LbMain.ItemsSource = new[] { excel };
         }
     }
 }
