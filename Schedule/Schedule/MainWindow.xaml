@@ -14,37 +14,51 @@
         <Button Content = "Составить расписание" Margin="0 10 0 0" />
         <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold"> Результат:</TextBlock>
 
-        <ListBox x:Name="resList2">
+
+       
+
+        <!--Шапка таблицы "times"-->
+        <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+            <TextBlock Text = "nomenclature id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+            <TextBlock Text = "operation time" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
+        </Grid>
+
+
+        <!--таблица "times"-->
+        <ListBox x:Name="timesView">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                    <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
+        
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ListBox/>
+                    <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text = "{Binding machineToolId}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                        <TextBlock Text = "{Binding nomenclatureId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                        <TextBlock Text = "{Binding operationTime}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
+                    </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
-
-        <!--<ListBox x:Name="resList2">
-            <ListBox>
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
-        </ListBox>-->
-
-        <!--<ListBox x:Name="resList">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        </ListBox>-->
 
     </StackPanel>
 </Window>

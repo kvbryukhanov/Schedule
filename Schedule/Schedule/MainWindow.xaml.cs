@@ -38,11 +38,14 @@ namespace Schedule
 
             List<List<string>> resTable = scheduleSheet.GetTable();
             //resList.ItemsSource = resTable.ElementAt(0);
-            resList2.ItemsSource = resTable;
+            
             List<TimesItem> timesList = timesSheet.GetTimesList();
             List<MachineToolsItem> machineToolsList = machineToolsSheet.GetMachineToolsList();
             List<PartiesItem> partiesList = partiesSheet.GetPartiesList();
             List<NomenclaturesItem> nomenclaturesList = nomenclaturesSheet.GetNomenclaturesList();
+
+            timesView.ItemsSource = timesList;
+
             //LbMain.ItemsSource = excel;
             //LbMain.ItemsSource = new[] { excel };
         }
