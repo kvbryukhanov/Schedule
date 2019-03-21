@@ -5,61 +5,182 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Schedule"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="400">
+        Title="Schedule" Height="500" Width="500">
     <StackPanel>
-        <Button Content = "Открыть файл machine_tools" />
+        <ScrollViewer Name="scroll" Height="400">
+            <StackPanel>
+                <!--<Button Content = "Открыть файл machine_tools" />
         <Button Content = "Открыть файл nomenclatures" />
         <Button Content = "Открыть файл parties" />
-        <Button Content = "Открыть файл times" />
+        <Button Content = "Открыть файл times" />-->
+
+
+                <!--Шапка таблицы "times"-->
+                <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold">Таблица "Times"</TextBlock>
+                <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text = "nomenclature id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text = "operation time" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
+                </Grid>
+
+
+                <!--таблица "times"-->
+                <ListBox x:Name="timesView">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text = "{Binding machineToolId}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text = "{Binding nomenclatureId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <!--Шапка таблицы "machine_tools"-->
+                <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold">Таблица "Machine Tools"</TextBlock>
+                <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text = "name" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                </Grid>
+
+
+                <!--таблица "machine_tools"-->
+                <ListBox x:Name="machineToolsView">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text = "{Binding id}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text = "{Binding name}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <!--Шапка таблицы "nomenclatures"-->
+                <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold">Таблица "Nomenclatures"</TextBlock>
+                <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text = "nomenclature" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                </Grid>
+
+
+                <!--таблица "nomenclatures"-->
+                <ListBox x:Name="nomenclaturesView">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text = "{Binding id}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text = "{Binding nomenclature}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <!--Шапка таблицы "parties"-->
+                <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold">Таблица "Parties"</TextBlock>
+                <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="15"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                    <TextBlock Text = "nomenclature id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                </Grid>
+
+
+                <!--таблица "times"-->
+                <ListBox x:Name="partiesView">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="15"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text = "{Binding id}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
+                                <TextBlock Text = "{Binding nomenclatureId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </ScrollViewer>
         <Button Content = "Составить расписание" Margin="0 10 0 0" />
-        <TextBlock TextAlignment="Center" Margin="0 10 0 0" FontWeight="Bold"> Результат:</TextBlock>
-
-
-       
-
-        <!--Шапка таблицы "times"-->
-        <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="15"/>
-            </Grid.RowDefinitions>
-            <TextBlock Text = "id" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
-            <TextBlock Text = "nomenclature id" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
-            <TextBlock Text = "operation time" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
-        </Grid>
-
-
-        <!--таблица "times"-->
-        <ListBox x:Name="timesView">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Vertical" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
-        
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid ShowGridLines="True" HorizontalAlignment="Stretch" Width="400">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="15"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text = "{Binding machineToolId}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"/>
-                        <TextBlock Text = "{Binding nomenclatureId}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"/>
-                        <TextBlock Text = "{Binding operationTime}" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-
     </StackPanel>
 </Window>
     

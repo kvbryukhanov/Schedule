@@ -45,9 +45,10 @@ namespace Schedule
             List<NomenclaturesItem> nomenclaturesList = nomenclaturesSheet.GetNomenclaturesList();
 
             timesView.ItemsSource = timesList;
+            machineToolsView.ItemsSource = machineToolsList;
+            partiesView.ItemsSource = partiesList;
+            nomenclaturesView.ItemsSource = nomenclaturesList;
 
-            //LbMain.ItemsSource = excel;
-            //LbMain.ItemsSource = new[] { excel };
         }
     }
 }
