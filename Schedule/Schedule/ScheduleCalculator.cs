@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 /// <summary>
-/// Рассчитывает расписание
+/// Калькулятор. Проводит необходимые рассчеты для составления расписания
 /// </summary>
 /// <param name="timesList">Список элементов таблицы "times"</param>
 /// <param name="machineToolsList">Список элементов таблицы "machine tools"</param>
@@ -18,14 +18,14 @@ namespace Schedule
     {
         public List<TimesItem> TimesList { get; set; }
         public List<MachineToolsItem> MachineToolsList { get; set; }
-        public List<PartiesItem> PartiesList { get; set; } 
+        public List<PartiesItem> PartiesList { get; set; }
         public List<NomenclaturesItem> NomenclaturesList { get; set; }
         public List<Machine> Machines { get; set; }
 
         public ScheduleCalculator(
-            List<TimesItem> timesList, 
-            List<MachineToolsItem> machineToolsList, 
-            List<PartiesItem> partiesList, 
+            List<TimesItem> timesList,
+            List<MachineToolsItem> machineToolsList,
+            List<PartiesItem> partiesList,
             List<NomenclaturesItem> nomenclaturesList
             )
         {
@@ -35,7 +35,12 @@ namespace Schedule
             NomenclaturesList = nomenclaturesList;
         }
 
-        public List<List<string>> SetDataForMachine(MachineToolsItem machineToolsItem)
+        /// <summary>
+        /// Метод готовит данные для работы станка, вызов необходим перед началом работы станка
+        /// </summary>
+        /// <param name="machineToolsItem">Строка таблицы machine tools с параметрами станка</param>
+        /// <returns>название станка, список доступных материалов, список времени обработки соответственно</returns>
+        private List<List<string>> SetDataForMachine(MachineToolsItem machineToolsItem)
         {
             List<string> name = new List<string>();//название станка
             List<string> materialsList = new List<string>(); //список доступных материалов
@@ -60,6 +65,21 @@ namespace Schedule
             listForMachine.Add(workTimesList);
             return listForMachine;
         }
-        
+
+        /// <summary>
+        /// Создает линию станков. Передавая информацио о каждом объекту ProductionLine.
+        /// return: 1 - успешно, 0 - неудача
+        /// </summary>
+        /// <returns></returns>
+        public ProductionLine MakeProductionLine()
+        {
+            ProductionLine productionLine = new ProductionLine();
+            foreach (MachineToolsItem machineToolsItem in MachineToolsList)
+            {
+                if (productionLine.AddMachine(SetDataForMachine(machineToolsItem)) == null)
+                    return null;
+            }
+            return productionLine;
+        }
     }
 }

@@ -8,6 +8,9 @@ using _Excel = Microsoft.Office.Interop.Excel;
 
 namespace Schedule
 {
+    /// <summary>
+    /// Лист Excell
+    /// </summary>
     class Excel
     {
         string path = ""; //Путь до файла

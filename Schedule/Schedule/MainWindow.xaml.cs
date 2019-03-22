@@ -49,6 +49,8 @@ namespace Schedule
             partiesView.ItemsSource = partiesList;
             nomenclaturesView.ItemsSource = nomenclaturesList;
 
+            
+
         }
     }
 }

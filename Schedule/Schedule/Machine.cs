@@ -4,30 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-/// <summary>
-/// Класс станок
-/// </summary>
-/// <param name="materialsList">Список возможных материалов</param>
-/// <param name="workTimeList">Список времени обработки материала соответственно</param>
+
 namespace Schedule
 {
+    /// <summary>
+    /// Класс станок
+    /// </summary>
+    /// <param name="materialsList">Список возможных материалов</param>
+    /// <param name="workTimeList">Список времени обработки материала соответственно</param>
     class Machine
     {
         List<string> MaterialsList { get; set; }
         List<string> WorkTimeList { get; set; }
         private int WorkingTime { get; set; } //Хранит оставшееся количество единиц времени работы
+        string Name { get; set; }//название станка
 
-        public Machine(List<string> materialsList, List<string> workTimeList)
+        public Machine(string name, List<string> materialsList, List<string> workTimeList)
         {
+            Name = name;
             MaterialsList = materialsList;
             WorkTimeList = workTimeList;
         }
 
         /// <summary>
-        /// Загрузить материал в станок
+        /// Загрузить материал в станок. Устанавливает время работы станка в случае удачи. 
+        /// return: 0 - материал не подходит, время работы станка - удача 
         /// </summary>
         /// <param name="material">Материал</param>
         /// <returns>Время работы станка, 0 - материал не подходит</returns>
+
         public int SetMachine (string material)
         {
             int canMake = 0; //1 - есть возможность обработки; 0 - материал недоступен

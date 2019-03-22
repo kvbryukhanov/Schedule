@@ -60,8 +60,10 @@
     <Compile Include="MachineToolsList.cs" />
     <Compile Include="NomenclaturesItem.cs" />
     <Compile Include="PartiesItem.cs" />
+    <Compile Include="ProductionLine.cs" />
     <Compile Include="ScheduleCalculator.cs" />
     <Compile Include="ScheduleItem.cs" />
+    <Compile Include="ScheduleMaker.cs" />
     <Compile Include="TimesItem.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
