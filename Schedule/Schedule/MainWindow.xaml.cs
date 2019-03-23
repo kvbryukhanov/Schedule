@@ -42,14 +42,16 @@ namespace Schedule
             List<TimesItem> timesList = timesSheet.GetTimesList();
             List<MachineToolsItem> machineToolsList = machineToolsSheet.GetMachineToolsList();
             List<PartiesItem> partiesList = partiesSheet.GetPartiesList();
-            List<NomenclaturesItem> nomenclaturesList = nomenclaturesSheet.GetNomenclaturesList();
+            List<NomenclaturesItem> nomenclaturesList = nomenclaturesSheet.GetNomenclaturesList(); 
 
             timesView.ItemsSource = timesList;
             machineToolsView.ItemsSource = machineToolsList;
             partiesView.ItemsSource = partiesList;
             nomenclaturesView.ItemsSource = nomenclaturesList;
 
-            
+            ScheduleMaker scheduleMaker = new ScheduleMaker(timesList, machineToolsList, partiesList, nomenclaturesList);
+            List<ScheduleItem> schedule = scheduleMaker.MakeSchedule();
+            partiesList = partiesSheet.GetPartiesList();
 
         }
     }

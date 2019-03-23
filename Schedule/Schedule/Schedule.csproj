@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Clock.cs" />
     <Compile Include="Machine.cs" />
     <Compile Include="MachineToolsItem.cs" />
     <Compile Include="MachineToolsList.cs" />

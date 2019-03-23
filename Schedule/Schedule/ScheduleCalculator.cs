@@ -53,7 +53,7 @@ namespace Schedule
                     foreach (NomenclaturesItem nomenclaturesItem in NomenclaturesList)
                     {
                         if (nomenclaturesItem.id == timesItem.nomenclatureId)
-                            workTimesList.Add(nomenclaturesItem.nomenclature);
+                            materialsList.Add(nomenclaturesItem.nomenclature);
                     }
                 }
             }

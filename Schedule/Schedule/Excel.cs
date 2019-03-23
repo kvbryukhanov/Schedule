@@ -182,13 +182,15 @@ namespace Schedule
             {
                 scheduleList.Add(new ScheduleItem
                 {
-                    parties = ReadCell(1 + i, 0).ToString(),
-                    machineTools = ReadCell(1 + i, 1).ToString(),
-                    startTime = ReadCell(1 + i, 2).ToString(),
-                    endTime = ReadCell(1 + i, 3).ToString()
+                    partiesId = ReadCell(1 + i, 0).ToString(),
+                    partiesName = ReadCell(1 + i, 1).ToString(),
+                    machineTools = ReadCell(1 + i, 2).ToString(),
+                    machineToolsId = ReadCell(1 + i, 3).ToString(),
+                    startTime = ReadCell(1 + i, 4).ToString(),
+                    endTime = ReadCell(1 + i, 5).ToString()
                 });
                 i++;
-            } while (scheduleList.ElementAt(i - 1).parties != "");
+            } while (scheduleList.ElementAt(i - 1).partiesId != "");
             scheduleList.RemoveAt(i - 1);
             return scheduleList;
         }

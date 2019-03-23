@@ -8,8 +8,10 @@ namespace Schedule
 {
     class ScheduleItem
     {
-        public string parties { get; set; }
+        public string partiesId { get; set; }
+        public string partiesName { get; set; }
         public string machineTools { get; set; }
+        public string machineToolsId { get; set; }
         public string startTime { get; set; }
         public string endTime { get; set; }
     }

@@ -53,5 +53,35 @@ namespace Schedule
             }
             return machineId;
         }
+
+        /// <summary>
+        /// Возвращает список неотработанного времени в соответствии с Id станков
+        /// </summary>
+        /// <returns>Список неотработанного времени в соответствии с Id станков</returns>
+        public List<string> GetWorkingTime()
+        {
+            List<string> workingTimeList = new List<string>();
+            for (int i = 0; i < machines.Count; i++)
+            {
+                workingTimeList.Add(machines.ElementAt(i).GetWorkingTime().ToString());
+            }
+            return workingTimeList;
+        }
+
+        /// <summary>
+        /// Включает все станки линии на 1 единицу времени;
+        /// Возвращает список неотработанного времени в соответствии с Id станков
+        /// </summary>
+        /// <returns>Список неотработанного времени в соответствии с Id станков</returns>
+        public List<string> workStep()
+        {
+            List<string> workingTimeList = new List<string>();
+            for (int i = 0; i < machines.Count; i++)
+            {
+                machines.ElementAt(i).Step();
+                workingTimeList.Add(machines.ElementAt(i).GetWorkingTime().ToString());
+            }
+            return workingTimeList;
+        }
     }
 }
