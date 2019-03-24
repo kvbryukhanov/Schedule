@@ -21,7 +21,8 @@ namespace Schedule
     /// </summary>
     public partial class MainWindow : Window
     {
-        Excel scheduleSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\schedule1.xlsx", 1);
+        Excel scheduleSheet;
+        //Excel scheduleSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\schedule1.xlsx", 1);
         Excel timesSheet;
         //Excel timesSheet = new Excel(@"C:\Users\Константин\source\repos\Schedule\Schedule\Schedule\times.xlsx", 1);
         Excel machineToolsSheet;
@@ -46,10 +47,6 @@ namespace Schedule
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //throw new NotImplementedException();
-
-
-
-            List<List<string>> resTable = scheduleSheet.GetTable();
             //resList.ItemsSource = resTable.ElementAt(0);
 
         }
@@ -110,7 +107,13 @@ namespace Schedule
             ScheduleMaker scheduleMaker = new ScheduleMaker(timesList, machineToolsList, partiesList, nomenclaturesList);
             List<ScheduleItem> schedule = scheduleMaker.MakeSchedule();
             partiesList = partiesSheet.GetPartiesList();
-            scheduleView.ItemsSource = schedule;   
+            scheduleView.ItemsSource = schedule;
+            ExcelCreator excelCreator = new ExcelCreator();
+            excelCreator.createFile();
+            excelCreator.WriteSchedule(schedule);
+            //scheduleSheet = new Excel
+            //List<List<string>> resTable = scheduleSheet.GetTable();
+
         }
     }
 }

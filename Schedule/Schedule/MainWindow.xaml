@@ -9,10 +9,10 @@
     <ScrollViewer>
         <StackPanel>
             
-            <Button Content = "Chouse file times" x:Name="chouseTimes" Click="ButtonClickTimes"/>
-            <Button Content = "Chouse file machine_tools" x:Name="chouseMachineTools" Click="ButtonClickMachineTools"/>
-            <Button Content = "Chouse file nomenclatures" x:Name="chouseNomenclatures" Click="ButtonClickNomenclatures"/>
-            <Button Content = "Chouse file parties" x:Name="chouseParties" Click="ButtonClickParties"/>
+            <Button Content = "Choose file times" x:Name="chouseTimes" Click="ButtonClickTimes"/>
+            <Button Content = "Choose file machine_tools" x:Name="chouseMachineTools" Click="ButtonClickMachineTools"/>
+            <Button Content = "Choose file nomenclatures" x:Name="chouseNomenclatures" Click="ButtonClickNomenclatures"/>
+            <Button Content = "Choose file parties" x:Name="chouseParties" Click="ButtonClickParties"/>
             
             <ScrollViewer Name="scroll" Height="300">
                 <StackPanel>
@@ -181,7 +181,7 @@
                 </ListBox>
             </StackPanel>
         </ScrollViewer>
-        <Button x:Name="makeScheduleButton" Content = "Составить расписание" Click="ButtonClick" Margin="0 10 0 0" />
+        <Button x:Name="makeScheduleButton" Content = "Make the schedule" Click="ButtonClick" Margin="0 10 0 0" />
 
         <!--Шапка таблицы "schedule"-->
         <TextBlock TextAlignment="Center"  Margin ="0 10 0 0"  FontWeight="Bold">Таблица "Schedule"</TextBlock>

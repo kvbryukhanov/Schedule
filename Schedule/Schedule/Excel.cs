@@ -194,6 +194,5 @@ namespace Schedule
             scheduleList.RemoveAt(i - 1);
             return scheduleList;
         }
-
     }
 }
