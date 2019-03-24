@@ -5,15 +5,6 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schedule", "Schedule\Schedule.csproj", "{5089B9F4-EBBD-4CED-8664-FC9F5F48C210}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5CADFF4C-7A20-4AE4-9E66-1BAE6BAC8878}"
-	ProjectSection(SolutionItems) = preProject
-		Schedule\machine_tools.xlsx = Schedule\machine_tools.xlsx
-		Schedule\nomenclatures.xlsx = Schedule\nomenclatures.xlsx
-		Schedule\parties.xlsx = Schedule\parties.xlsx
-		Schedule\schedule.xlsx = Schedule\schedule.xlsx
-		Schedule\times.xlsx = Schedule\times.xlsx
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
